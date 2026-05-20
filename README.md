@@ -1,3 +1,5 @@
+## Live Demo
+[View MacroLens](https://macrolens.streamlit.app)
 # MacroLens
 
 MacroLens is an interactive macroeconomic and financial analytics dashboard built with Python, Streamlit, Plotly, yfinance, FRED, and Gemini AI.
