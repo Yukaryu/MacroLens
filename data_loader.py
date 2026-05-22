@@ -45,4 +45,9 @@ def load_economic_data(_fred, series_code):
 
 
 def get_latest_value(series):
-    return (series.dropna().iloc[-1].item())
+    clean_series = series.dropna()
+
+    if clean_series.empty:
+        return None
+
+    return clean_series.iloc[-1].item()

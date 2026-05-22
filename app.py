@@ -371,6 +371,24 @@ except Exception as e:
     st.write(e)
     st.stop()
 
+# in case yfinance fails/ returns empty
+if data.empty or "Close" not in data.columns:
+    st.error(
+        "Market data could not be loaded right now because the data provider is rate-limiting requests. Please refresh after a few minutes."
+    )
+    st.stop()
+
+if comparison_data.empty or "Close" not in comparison_data.columns:
+    st.error(
+        "Comparison market data could not be loaded right now because the data provider is rate-limiting requests. Please refresh after a few minutes."
+    )
+    st.stop()
+
+# in case fred api fails
+if economic_data.empty:
+    st.warning(
+        "Economic data could not be loaded right now."
+    )
 
 # getting the latest data
 latest_price = get_latest_value(data["Close"])
